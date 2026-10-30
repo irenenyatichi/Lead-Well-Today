@@ -77,25 +77,25 @@ const testimonials = [
   {
     name: 'GEORGE MURIITHI',
     initials: 'GE',
-    Image: '/public/images/GeorgeMuriithi.jpg',
+    Image: `${import.meta.env.BASE_URL}images/GeorgeMuriithi.jpg`,
     quote: 'Leadwell has transformed how I see myself and my responsibility as a leader. I have learned to lead myself first, becoming more intentional about my character, decisions and influence. The programme challenged my thinking and gave me practical tools I can apply in real life. Through the Personal Transformation Project, I moved from simply learning about leadership to using what I learned to create tangible impact. I left Leadwell with greater clarity, confidence and conviction about my purpose. Most importantly, I now understand that leadership is about serving others, multiplying impact and using my influence to advance God’s Kingdom.',
   },
   {
     name: 'SIMON KANUMBI',
     initials: 'SI',
-    Image: '/public/images/SimonKanumbi.jpg',
+    Image: `${import.meta.env.BASE_URL}images/SimonKanumbi.jpg`,
     quote: 'One of the key lessons I took from the whole program was the importance of effective communication. A good leader should be able to listen to others, express ideas clearly, and create an environment where everyone feels valued. I also learned that teamwork and collaboration are essential for achieving shared goals. The training challenged me to reflect on my own leadership abilities and identify areas where I need to improve. I realized that becoming a better leader requires continuous learning, humility, patience, and a willingness to accept feedback.',
   },
   {
     name: 'MONICAH MULILI',
     initials: 'MO',
-    Image: '/public/images/MonicahMulili.jpg',
+    Image: `${import.meta.env.BASE_URL}images/MonicahMulili.jpg`,
     quote: 'From the very first lessons, Lead Well started to unpack what true leadership is really about. For me, it became a profound journey of unlearning and relearning. The biggest shift came when I understood that leadership has everything to do with the status of my heart, and not just what I can do. That realization brought me to a place of intentionally working on my heart as much as I was working on my skills. I am a better leader today because of Lead Well, and everything I learned and experienced during that season still keeps me in check.',
   },
   {
     name: 'ANNE OSOSO',
     initials: 'AO',
-    Image: '/public/images/AnneOsoro.jpg',
+    Image: `${import.meta.env.BASE_URL}images/AnneOsoro.jpg`,
     quote: 'Before Lead Well, I thought leadership meant a title, a position, the power to say something and have it done. I wanted something different. I wanted to grow as a leader from a Kingdom foundation first; for myself, then for my girls, and eventually for the marketplace. Lead Well was an answered prayer. What struck me most was watching leadership lived out. They modeled leadership as stewardship, not ownership; using influence and resources to lift others, not to accumulate for themselves. Lead Well did not just teach me leadership; it is reshaping who I am.',
   },
 ];
@@ -138,7 +138,8 @@ function renderTestimonial() {
   if (quote) quote.textContent = item.quote;
   if (name) name.textContent = item.name;
   if (portrait) {
-    portrait.innerHTML = '<div class="portrait-placeholder">' + item.Image + '</div><span class="portrait-name">' + item.name + '</span>';
+    portrait.innerHTML = '<div class="portrait-placeholder"><img src="' + item.Image + '" alt="' + item.name + '" /></div><span class="portrait-name">' + item.name + '</span>';
+    portrait.querySelector('img')?.addEventListener('error', e => { (e.target as HTMLImageElement).replaceWith(document.createTextNode(item.initials)); });
   }
   if (counter) counter.textContent = String(testimonialIndex + 1).padStart(2, '0') + ' / ' + String(testimonials.length).padStart(2, '0');
   if (gallery) gallery.hidden = true;
