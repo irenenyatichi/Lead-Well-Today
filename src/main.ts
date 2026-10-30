@@ -186,3 +186,13 @@ document.querySelector('#contactForm')?.addEventListener('submit', event => {
   const body = encodeURIComponent('Name: ' + nameValue + '\nEmail: ' + emailValue + '\n\nMessage:\n' + messageValue);
   window.location.href = 'mailto:admin@leadwell-today.com?subject=' + subject + '&body=' + body;
 });
+
+/* Photo cropping: keep faces in view */
+.person-image{object-position:center 20%}
+.person-image[src*="SimonKanumbi"]{object-position:center top}
+.person-image[src*="MonicahMulili"]{object-position:center 25%}
+.person-image[src*="AnneOsoro"]{object-position:center 40%}
+.testimonial-portrait .portrait-placeholder img{object-position:center 20%}
+.testimonial-portrait .portrait-placeholder img[src*="SimonKanumbi"]{object-position:center top}
+.testimonial-portrait .portrait-placeholder img[src*="AnneOsoro"]{object-position:center 40%}
+.portrait-name{color:#fff;font-weight:600;letter-spacing:.04em}
