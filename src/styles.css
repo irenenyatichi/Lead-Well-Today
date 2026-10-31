@@ -95,3 +95,13 @@
 .person-name{overflow-wrap:anywhere}
 @media (max-width:480px){.testimonial-person{padding-bottom:16px}.person-name{font-size:18px}.hero h1{font-size:clamp(56px,18vw,96px)}}
 @media (min-width:901px) and (max-width:1100px){.testimonial-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Photo cropping: keep faces in view */
+.person-image{object-position:center 20%}
+.person-image[src*="SimonKanumbi"]{object-position:center top}
+.person-image[src*="MonicahMulili"]{object-position:center 25%}
+.person-image[src*="AnneOsoro"]{object-position:center 40%}
+.testimonial-portrait .portrait-placeholder img{object-position:center 20%}
+.testimonial-portrait .portrait-placeholder img[src*="SimonKanumbi"]{object-position:center top}
+.testimonial-portrait .portrait-placeholder img[src*="AnneOsoro"]{object-position:center 40%}
+.portrait-name{color:#fff;font-weight:600;letter-spacing:.04em}
